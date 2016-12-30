@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MVCEvening.Models;
 using MVCEvening.ViewModels;
 
 
@@ -13,6 +14,8 @@ namespace MVCEvening.Controllers
         // GET: Main
 
         CustomerForm customerForm = new CustomerForm();
+        Repository _repository = new Repository();
+
 
         public ActionResult Index()
         {
@@ -39,12 +42,16 @@ namespace MVCEvening.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Create(CustomerForm customerForm)
         {
+            if (ModelState.IsValid)
+            {
+                _repository.Create(customerForm);
+            }
             return View();
         }
-
 
     }
 }
