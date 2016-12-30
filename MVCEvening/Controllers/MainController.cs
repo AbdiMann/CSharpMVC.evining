@@ -42,7 +42,6 @@ namespace MVCEvening.Controllers
         [HttpPost]
         public ActionResult Create(CustomerForm customerForm)
         {
-
             return View();
         }
 
