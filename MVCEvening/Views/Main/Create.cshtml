@@ -13,6 +13,10 @@
 
     <div class="form-horizontal">
         <h4>CustomerForm</h4>
+        @if (TempData["Success"] != null)
+        {
+            <h3 class="alert alert-success">@TempData["Success"]</h3>
+        }
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

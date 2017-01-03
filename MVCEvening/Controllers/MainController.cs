@@ -34,8 +34,7 @@ namespace MVCEvening.Controllers
 
         public ActionResult CustomersList()
         {
-            var myCustomerList = customerForm.GetPersonInfo();
-            return View(myCustomerList);
+            return View();
         }
 
         public ActionResult Create()
@@ -49,6 +48,7 @@ namespace MVCEvening.Controllers
             if (ModelState.IsValid)
             {
                 _repository.Create(customerForm);
+                TempData["Success"] = "Successfully Saved this Customer";
             }
             return View();
         }

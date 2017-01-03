@@ -11,7 +11,7 @@ namespace MVCEvening.Models
     {
 
         public string _connectionString =
-            System.Configuration.ConfigurationManager.ConnectionStrings["mvcEvening"].ConnectionString;
+            System.Configuration.ConfigurationManager.ConnectionStrings["CSharpMVC"].ConnectionString;
 
 
 
@@ -20,7 +20,7 @@ namespace MVCEvening.Models
             using (var connection = new SqlConnection(_connectionString))
             using (var command = connection.CreateCommand())
             {
-                command.CommandText = @"INSERT INTO Customers_Table (CustomerName,CustomerAddress,CustomerPhone)
+                command.CommandText = @"INSERT INTO CustomersTable (CustomerName,CustomerAddress,CustomerPhone)
                                                 VALUES (@CustomerName,@CustomerAddress,@CustomerPhone)";
                 command.Parameters.AddWithValue("@CustomerName", customerForm.CustomerName);
                 command.Parameters.AddWithValue("@CustomerAddress", customerForm.CustomerAddress);
